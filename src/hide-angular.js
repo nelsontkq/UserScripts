@@ -4,19 +4,19 @@
 // @version      0.1
 // @description  Add -angularjs flag to google searches containing 'angular' keyword
 // @author       nelson
-// @match        https://*.google.com/search*
+// @match        https://*.google.*/search*
 // @grant        none
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
   "use strict";
-  let form = document.querySelector("#tsf");
-  var query = form.elements.q;
-  let value = query.value.toLowerCase().split(" ");
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+  const value = q.toLowerCase().split(" ");
 
   if (value.includes("angular") && !value.includes("-angularjs")) {
-    console.log("added to query. resubmitting.");
-    query.value = query.value + " -angularjs";
-    form.submit();
+    params.set("q", q + " -angularjs");
+    window.location.search = "?" + params.toString();
   }
 })();
