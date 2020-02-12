@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         Angular google search
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Add -angularjs flag to google searches containing 'angular' keyword
-// @author       nelson
-// @match        https://*.google.*/search*
-// @grant        none
-// @run-at       document-start
+// @name        Angular google search
+// @namespace   Violentmonkey Scripts
+// @version     1.0
+// @description Add -angularjs flag to google searches containing 'angular' keyword
+// @author      nelson
+// @match       https://*.google.*/search*
+// @grant       none
+// @run-at      document-start
 // ==/UserScript==
 
 (function() {
